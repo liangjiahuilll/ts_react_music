@@ -1,19 +1,17 @@
-import hyRequest from "@/service";
-import React, { memo, useEffect } from "react";
-import type { FC, ReactNode } from 'react'
-interface Iprop {
-  children?:ReactNode
-}
-const Recommend:FC<Iprop>=()=>{
-  useEffect(()=>{
-    hyRequest.get({
-      url:'/banner'
-    }).then(res=>{
-      console.log(res)
-    })
-  },[])
+import React, { memo, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchBannerdata } from './store/recommend'
+import TopBanner from './child-comp/top-banner'
+
+const Recommend = () => {
+  const dispach: any = useDispatch()
+  useEffect(() => {
+    dispach(fetchBannerdata())
+  }, [])
   return (
-    <div></div>
+    <div>
+      <TopBanner></TopBanner>
+    </div>
   )
 }
 export default memo(Recommend)

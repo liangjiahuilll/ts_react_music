@@ -1,56 +1,3 @@
-// import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-
-// interface HyRequstInterceptor {
-//   requestInterceptor?:(config:AxiosRequestConfig)=>AxiosRequestConfig
-//   requestInterceptorCatch?:(err:any)=>any
-//   responseInterceptor?:(config:AxiosResponse)=>AxiosResponse
-//   responseInterceptorCatch?:(err:any)=>any
-// }
-
-// interface HyRequestConfig extends AxiosRequestConfig{
-//   interceptors?:HyRequstInterceptor
-// }
-// class HyRequst{
-//   instance:AxiosInstance
-//   interceptors?:HyRequstInterceptor
-//   constructor(config:HyRequestConfig){
-//     this.instance=axios.create(config)
-//     this.interceptors=config.interceptors
-
-//     this.instance.interceptors.request.use(
-//       this.interceptors?.requestInterceptor,
-//       this.interceptors?.requestInterceptorCatch
-//     )
-//     this.instance.interceptors.response.use(
-//       this.interceptors?.responseInterceptor,
-//       this.interceptors?.responseInterceptorCatch
-//     )
-
-//     this.instance.interceptors.request.use(
-//       (config) => config, // 默认请求处理
-//       (err) => {
-//         console.error('Request Error:', err); // 请求错误处理
-//         return Promise.reject(err);
-//       }
-//     );
-
-//     this.instance.interceptors.response.use(
-//       (response) => response, // 默认响应处理
-//       (err) => {
-//         console.error('Response Error:', err); // 响应错误处理
-//         return Promise.reject(err);
-//       }
-//     );
-
-//   }
-
-//   request(config:HyRequestConfig):void{
-//     this.instance.request(config)
-//   }
-// }
-
-// export default HyRequst
-
 import axios from 'axios'
 import type { AxiosInstance } from 'axios'
 import type { HYRequestConfig } from './type'
@@ -64,20 +11,12 @@ class HYRequest {
 
     // 每个instance实例都添加拦截器
     this.instance.interceptors.request.use(
-      (config) => {
-        return config
-      },
-      (err) => {
-        return err
-      }
+      (config) => config,
+      (err) => err
     )
     this.instance.interceptors.response.use(
-      (res) => {
-        return res.data
-      },
-      (err) => {
-        return err
-      }
+      (res) => res.data,
+      (err) => err
     )
 
     // 针对特定的hyRequest实例添加拦截器

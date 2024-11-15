@@ -1,11 +1,6 @@
-import React, { memo } from "react";
-import type { FC, ReactNode } from 'react'
-interface Iprop {
-  children?:ReactNode
-}
-const Djradio:FC<Iprop>=()=>{
-  return (
-    <div></div>
-  )
+import React, { memo } from 'react'
+
+const Djradio = () => {
+  return <div></div>
 }
 export default memo(Djradio)

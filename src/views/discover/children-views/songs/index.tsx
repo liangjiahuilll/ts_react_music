@@ -1,11 +1,6 @@
-import React, { memo } from "react";
-import type { FC, ReactNode } from 'react'
-interface Iprop {
-  children?:ReactNode
+import React, { memo } from 'react'
+
+const Songs = () => {
+  return <div>123</div>
 }
-const Song:FC<Iprop>=()=>{
-  return (
-    <div></div>
-  )
-}
-export default memo(Song)
+export default memo(Songs)
