@@ -13,12 +13,28 @@ export const fetchBannerdata = createAsyncThunk(
   }
 )
 
+export const getHotrecommend=createAsyncThunk(
+  'hot',
+  async (args,{dispatch})=>{
+    const res=await hyRequest.get({
+      url:'/personalized',
+      headers: new AxiosHeaders(),
+      params:{
+        limit:8
+      }
+    })
+    dispatch(changeHotrecommend(res.result))
+  }
+)
+
 interface Irecommend {
-  banners: any[]
+  banners: any[],
+  hotrecommends:any[]
 }
 
 const initialState: Irecommend = {
-  banners: []
+  banners: [],
+  hotrecommends:[]
 }
 const recommendSlice = createSlice({
   name: 'recommend',
@@ -27,9 +43,13 @@ const recommendSlice = createSlice({
   reducers: {
     changeBanners(state, { payload }) {
       state.banners = payload
+    },
+
+    changeHotrecommend(state,{payload}){
+      state.hotrecommends=payload
     }
   }
 })
 
-export const { changeBanners } = recommendSlice.actions
+export const { changeBanners,changeHotrecommend } = recommendSlice.actions
 export default recommendSlice.reducer
