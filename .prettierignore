@@ -1,0 +1,16 @@
+# 忽略 dist 文件夹中的所有文件
+/dist/*
+# 忽略 .local 文件或文件夹
+.local
+# 忽略 .output.js 文件
+.output.js
+# 忽略 node_modules 文件夹中的所有文件及子文件夹
+/node_modules/**
+# 忽略所有目录中的 .svg 文件
+**/*.svg
+# 忽略所有目录中的 .sh 脚本文件
+**/*.sh
+# 忽略 public 文件夹中的所有文件
+/public/*
+
+# 格式化时忽略的文件和目录
