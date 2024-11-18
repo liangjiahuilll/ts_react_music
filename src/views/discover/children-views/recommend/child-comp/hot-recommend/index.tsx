@@ -15,7 +15,7 @@ const Hotrecomment = () => {
         morelink="/discover/songs"
       ></AreaHeader>
       <div className="recommend-list">
-        {hotsongs.map((item) => {
+        {hotsongs?.map((item) => {
           console.log(item)
           return <SongMenuItem key={item.id} itemData={item}></SongMenuItem>
         })}
