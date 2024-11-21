@@ -4,7 +4,6 @@ import { formatCount, getImgSize } from "@/utils/format"
 
 const SongMenuItem=(props)=>{
   const {itemData} = props
-  console.log(itemData)
   return (
     <MenuItemWarpper>
     <div className="top">

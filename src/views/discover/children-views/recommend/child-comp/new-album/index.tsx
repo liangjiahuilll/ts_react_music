@@ -4,11 +4,9 @@ import AreaHeader from '@/components/area-header'
 import { Carousel } from 'antd'
 import { useAppSelector } from '@/store'
 import NewAlbumitem from '@/components/new-album-item'
-import './index.css'
 const NewAlbum = () => {
   const bannerref = useRef<ElementRef<typeof Carousel>>()
   const newalbum = useAppSelector((state) => state.recommend.newalbum)
-  console.log(newalbum)
   function handlePrevClick() {
     bannerref.current.prev()
   }
@@ -25,11 +23,11 @@ const NewAlbum = () => {
         ></button>
         <div className="banner">
           <Carousel dots={false} speed={1500} ref={bannerref}>
-            {[0].map((item) => {
+            {[0,1].map((item) => {
               return (
-                <div>
+                <div key={item}>
                   <div className="album-list">
-                    {newalbum.slice(item * 5, item + 1 * 5).map((album) => {
+                    {newalbum?.slice(item * 5, (item + 1) * 5).map((album) => {
                       return (
                         <NewAlbumitem
                           key={album.id}

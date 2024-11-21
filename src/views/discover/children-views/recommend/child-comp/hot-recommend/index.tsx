@@ -6,7 +6,6 @@ import { memo } from 'react'
 
 const Hotrecomment = () => {
   const hotsongs = useAppSelector((state) => state.recommend.hotrecommends)
-  console.log(hotsongs)
   return (
     <RecommendWrapper>
       <AreaHeader
@@ -16,7 +15,6 @@ const Hotrecomment = () => {
       ></AreaHeader>
       <div className="recommend-list">
         {hotsongs?.map((item) => {
-          console.log(item)
           return <SongMenuItem key={item.id} itemData={item}></SongMenuItem>
         })}
       </div>
