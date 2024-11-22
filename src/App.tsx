@@ -6,9 +6,12 @@ import AppFooter from './components/app-footer'
 import PlayerBar from './views/player/player-bar/index'
 import { useDispatch } from 'react-redux'
 import { getCurrentSong } from './views/player/store/player'
+import Login from './views/login'
+import ReactDOM from 'react-dom'
 
 function App() {
   const dispatch:any=useDispatch()
+  const backdrop=document.getElementById('backdrop')
   useEffect(()=>{
     dispatch(getCurrentSong(2638631174))
   },[])
@@ -20,6 +23,9 @@ function App() {
       </Suspense>
       <AppFooter></AppFooter>
       <PlayerBar></PlayerBar>
+      {
+        ReactDOM.createPortal(<Login></Login>,backdrop)
+      }
     </div>
   )
 }

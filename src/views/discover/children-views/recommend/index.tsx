@@ -9,8 +9,11 @@ import Topranking from './child-comp/top-ranking'
 import UserLogin from './child-comp/user-login'
 import SettleSinger from './child-comp/settle-singer'
 import HotAnchor from './child-comp/hot-anchor'
+import UserLogined from './child-comp/user-logined'
+import { useAppSelector } from '@/store'
 
 const Recommend = () => {
+  const isUser=useAppSelector(state=>state.login.isUser)
   const dispach: any = useDispatch()
   useEffect(() => {
     dispach(fetchBannerdata())
@@ -29,7 +32,7 @@ const Recommend = () => {
             <Topranking></Topranking>
           </div>
           <div className='right'>
-            <UserLogin></UserLogin>
+            {isUser?<UserLogined></UserLogined>:<UserLogin></UserLogin>}
             <SettleSinger></SettleSinger>
             <HotAnchor></HotAnchor>
           </div>
