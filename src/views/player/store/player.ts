@@ -70,8 +70,12 @@ export const changeMusicAction = createAsyncThunk(
       newIndex = Math.floor(Math.random() * songList.length)
     } else {
       newIndex = isNext ? songIndex + 1 : songIndex - 1
-      if (newIndex > songList.length-1) {newIndex = 0}
-      if (newIndex < 0) {newIndex = songList.length - 1}
+      if (newIndex > songList.length - 1) {
+        newIndex = 0
+      }
+      if (newIndex < 0) {
+        newIndex = songList.length - 1
+      }
     }
 
     // 获取当前歌曲

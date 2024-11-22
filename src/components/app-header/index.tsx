@@ -8,8 +8,8 @@ import { useDispatch } from 'react-redux'
 import { changeShowLogin } from '@/views/login/store'
 
 const Appheader = () => {
-  const dispatch=useDispatch()
-  const changeLogin=()=>{
+  const dispatch = useDispatch()
+  const changeLogin = () => {
     dispatch(changeShowLogin(true))
   }
   function showitems(item: any) {
@@ -53,7 +53,9 @@ const Appheader = () => {
             prefix={<SearchOutlined></SearchOutlined>}
           ></Input>
           <span className="center">创作者中心</span>
-          <span className="login" onClick={changeLogin}>登录</span>
+          <span className="login" onClick={changeLogin}>
+            登录
+          </span>
         </HeaderRight>
       </div>
       <div className="divider"></div>

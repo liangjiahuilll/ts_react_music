@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const PlayerBarWrapper=styled.div`
-position: fixed;
+export const PlayerBarWrapper = styled.div`
+  position: fixed;
   z-index: 9999999;
   left: 0;
   right: 0;
@@ -24,8 +24,8 @@ position: fixed;
 interface IBarControl {
   isPlay: boolean
 }
-export const BarControl=styled.div<IBarControl>`
-display: flex;
+export const BarControl = styled.div<IBarControl>`
+  display: flex;
   align-items: center;
 
   .btn {
@@ -46,15 +46,16 @@ display: flex;
     width: 36px;
     height: 36px;
     margin: 0 8px;
-    background-position:  0 ${(props) => (props.isPlay ? '-165px' : '-204px')};
+    background-position: 0 ${(props) => (props.isPlay ? '-165px' : '-204px')};
   }
 
   .next {
     background-position: -80px -130px;
-  }`
+  }
+`
 
-export const BarPlayerInfo=styled.div`
-display: flex;
+export const BarPlayerInfo = styled.div`
+  display: flex;
   width: 642px;
   align-items: center;
 
@@ -121,11 +122,11 @@ display: flex;
     }
   }
 `
-interface Iplaymode{
-  playMode:number
+interface Iplaymode {
+  playMode: number
 }
-export const BarOperator=styled.div<Iplaymode>`
-display: flex;
+export const BarOperator = styled.div<Iplaymode>`
+  display: flex;
   align-items: center;
   position: relative;
   top: 3px;
@@ -164,8 +165,8 @@ display: flex;
     }
 
     .loop {
-      background-position: ${props=>{
-        switch (props.playMode){
+      background-position: ${(props) => {
+        switch (props.playMode) {
           case 1:
             return '-66px -248px'
           case 2:
@@ -173,7 +174,7 @@ display: flex;
           default:
             return '-3px -344px'
         }
-      }}
+      }};
     }
 
     .playlist {

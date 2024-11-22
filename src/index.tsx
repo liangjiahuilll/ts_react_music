@@ -13,9 +13,9 @@ root.render(
   // <React.StrictMode>
   <Provider store={store}>
     <ThemeProvider theme={theme}>
-    <HashRouter>
-      <App />
-    </HashRouter>
+      <HashRouter>
+        <App />
+      </HashRouter>
     </ThemeProvider>
   </Provider>
   // </React.StrictMode>

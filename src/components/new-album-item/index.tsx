@@ -1,12 +1,12 @@
-import React from "react"
-import { NewalbumlistWarpper } from "./style"
-import { getImgSize } from "@/utils/format"
-const NewAlbumitem=(props)=>{
-  const {itemData} =props
+import React from 'react'
+import { NewalbumlistWarpper } from './style'
+import { getImgSize } from '@/utils/format'
+const NewAlbumitem = (props) => {
+  const { itemData } = props
   return (
     <NewalbumlistWarpper>
       <div className="top">
-        <img src={getImgSize(itemData.picUrl,100)}></img>
+        <img src={getImgSize(itemData.picUrl, 100)}></img>
         <a href="" className="cover sprite_cover"></a>
       </div>
       <div className="bottom">

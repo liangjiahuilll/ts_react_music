@@ -39,7 +39,7 @@ export const LoginWarpper = styled.div`
       right: 20px;
       color: #5e5c5c;
       font-size: 18px;
-      cursor:pointer;
+      cursor: pointer;
     }
   }
 
@@ -58,7 +58,7 @@ export const LoginWarpper = styled.div`
 
   .other:hover {
     color: rgb(120, 180, 180);
-    cursor:pointer
+    cursor: pointer;
   }
 
   .datas {
@@ -86,9 +86,9 @@ export const LoginWarpper = styled.div`
     line-height: 36px;
     color: white;
 
-    &:hover{
-      color:rgb(104, 109, 109);
-      cursor:pointer
+    &:hover {
+      color: rgb(104, 109, 109);
+      cursor: pointer;
     }
   }
 `

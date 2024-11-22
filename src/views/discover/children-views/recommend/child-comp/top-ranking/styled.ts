@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const TopRankingWarpper=styled.div`
-.content {
+export const TopRankingWarpper = styled.div`
+  .content {
     display: flex;
 
     height: 472px;

@@ -23,7 +23,7 @@ const NewAlbum = () => {
         ></button>
         <div className="banner">
           <Carousel dots={false} speed={1500} ref={bannerref}>
-            {[0,1].map((item) => {
+            {[0, 1].map((item) => {
               return (
                 <div key={item}>
                   <div className="album-list">

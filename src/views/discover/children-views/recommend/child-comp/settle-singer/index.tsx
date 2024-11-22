@@ -28,8 +28,8 @@ const SettleSinger = () => {
             )
           })}
       </div>
-      <div className='apply-for'>
-        <a href='#/'>申请成为网易音乐人</a>
+      <div className="apply-for">
+        <a href="#/">申请成为网易音乐人</a>
       </div>
     </SettleSingerWarpper>
   )

@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const NewalbumlistWarpper=styled.div`
-.top {
+export const NewalbumlistWarpper = styled.div`
+  .top {
     position: relative;
     width: 118px;
     height: 100px;

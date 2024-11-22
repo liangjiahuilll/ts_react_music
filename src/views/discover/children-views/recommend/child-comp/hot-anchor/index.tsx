@@ -12,7 +12,7 @@ const Anchor = () => {
           return (
             <div className="item" key={item.picUrl}>
               <a href="" className="image">
-                <img src={item.picUrl} alt=''></img>
+                <img src={item.picUrl} alt=""></img>
               </a>
               <div className="info">
                 <div className="name">{item.name}</div>

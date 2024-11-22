@@ -24,11 +24,11 @@ const AreaHeader = (props) => {
           })}
         </div>
       </div>
-      <div className='right'>
-        <Link className='more' to={morelink}>
-        {moreText}
+      <div className="right">
+        <Link className="more" to={morelink}>
+          {moreText}
         </Link>
-        <i className='sprite_02 icon'></i>
+        <i className="sprite_02 icon"></i>
       </div>
     </AreaHeaderWarpper>
   )

@@ -11,7 +11,11 @@ import { useAppSelector } from '@/store'
 import { getImgSize } from '@/utils/format'
 import { formatTime, getSongUrl } from '@/utils/audio-player'
 import { useDispatch } from 'react-redux'
-import { changeLyricIndex, changeMusicAction, changePlayMode } from '../store/player'
+import {
+  changeLyricIndex,
+  changeMusicAction,
+  changePlayMode
+} from '../store/player'
 
 const Playbar = () => {
   const currentSong = useAppSelector((state) => state.playlist.currentsong)
@@ -24,7 +28,7 @@ const Playbar = () => {
   const [progress, setProgress] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
   const [isSliding, setIsSlliding] = useState(false)
-  const dispatch:any = useDispatch()
+  const dispatch: any = useDispatch()
   // const songList=useAppSelector(state=>state.playlist.playlist)
   // console.log(lyric)
   // console.log(currentSong)
@@ -113,16 +117,16 @@ const Playbar = () => {
     dispatch(changePlayMode(newplay))
   }
 
-  const handleChangeMusic=(isNext=true)=>{
+  const handleChangeMusic = (isNext = true) => {
     console.log('前一首')
     dispatch(changeMusicAction(isNext))
   }
 
-  const handleTimeEnded=()=>{
-    if(playMode===2){
-      audioRef.current.currentTime=0
+  const handleTimeEnded = () => {
+    if (playMode === 2) {
+      audioRef.current.currentTime = 0
       audioRef.current.play()
-    }else{
+    } else {
       handleChangeMusic(true)
     }
   }
@@ -130,12 +134,18 @@ const Playbar = () => {
     <PlayerBarWrapper className="sprite_playbar">
       <div className="content wrap-v2">
         <BarControl isPlay={isPlay}>
-          <button className="btn sprite_playbar prev"  onClick={()=>handleChangeMusic(false)}></button>
+          <button
+            className="btn sprite_playbar prev"
+            onClick={() => handleChangeMusic(false)}
+          ></button>
           <button
             className="btn sprite_playbar play"
             onClick={handlePlayBtn}
           ></button>
-          <button className="btn sprite_playbar next"  onClick={()=>handleChangeMusic()}></button>
+          <button
+            className="btn sprite_playbar next"
+            onClick={() => handleChangeMusic()}
+          ></button>
         </BarControl>
         <BarPlayerInfo>
           <Link to="/player">
@@ -181,7 +191,11 @@ const Playbar = () => {
           </div>
         </BarOperator>
       </div>
-      <audio ref={audioRef} onTimeUpdate={handleTimeUpdate} onEnded={handleTimeEnded}></audio>
+      <audio
+        ref={audioRef}
+        onTimeUpdate={handleTimeUpdate}
+        onEnded={handleTimeEnded}
+      ></audio>
     </PlayerBarWrapper>
   )
 }

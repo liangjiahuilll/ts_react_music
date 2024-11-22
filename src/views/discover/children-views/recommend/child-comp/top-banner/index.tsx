@@ -55,19 +55,19 @@ const Topbanner = () => {
                 )
               })}
           </Carousel>
-          <ul className='dots'>
+          <ul className="dots">
             {banners &&
-            banners.map((item, index) => {
-              return (
-                <li key={item.imageUrl}>
-                  <span
-                    className={classNames('item', {
-                      active: index === currentindex
-                    })}
-                  ></span>
-                </li>
-              )
-            })}
+              banners.map((item, index) => {
+                return (
+                  <li key={item.imageUrl}>
+                    <span
+                      className={classNames('item', {
+                        active: index === currentindex
+                      })}
+                    ></span>
+                  </li>
+                )
+              })}
           </ul>
         </BannerLeft>
         <BannerRight></BannerRight>

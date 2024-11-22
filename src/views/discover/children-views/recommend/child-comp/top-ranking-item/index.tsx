@@ -8,16 +8,15 @@ const ToprankingItem = (props) => {
   const { itemData } = props
   const { tracks = [] } = itemData
   // const currentSong=useAppSelector(state=>state.playlist.currentsong)
-  const dispatch:any=useDispatch()
-  const handleplayClick=(id:number)=>{
+  const dispatch: any = useDispatch()
+  const handleplayClick = (id: number) => {
     dispatch(getCurrentSong(id))
   }
-
 
   return (
     <ToprankingItemWarpper>
       <div className="header">
-      <div className="image">
+        <div className="image">
           <img src={getImgSize(itemData.coverImgUrl, 80)} alt="" />
           <a href="" className="sprite_cover"></a>
         </div>
@@ -37,7 +36,12 @@ const ToprankingItem = (props) => {
               <div className="info">
                 <div className="name">{item.name}</div>
                 <div className="operator">
-                  <button className="btn sprite_02 play"  onClick={()=>{handleplayClick(item.id)}}></button>
+                  <button
+                    className="btn sprite_02 play"
+                    onClick={() => {
+                      handleplayClick(item.id)
+                    }}
+                  ></button>
                   <button className="btn sprite_icon2 add"></button>
                   <button className="btn sprite_02 favor"></button>
                 </div>

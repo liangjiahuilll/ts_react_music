@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const NewAlbumWarpper=styled.div`
- margin-top: 20px;
+export const NewAlbumWarpper = styled.div`
+  margin-top: 20px;
 
   > .content {
     height: 186px;

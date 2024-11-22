@@ -20,9 +20,9 @@ export const FocusWarpper = styled.div`
       margin: 260px 0 0 535px;
       text-indent: -9999px;
       // background-color:red;
-      &:hover{
+      &:hover {
         background-position: 0 -430px;
-        cursor:pointer
+        cursor: pointer;
       }
     }
   }

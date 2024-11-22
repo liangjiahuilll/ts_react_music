@@ -10,10 +10,10 @@ const Login = () => {
   const dispatch: any = useDispatch()
   const closeLogin = () => {
     dispatch(changeShowLogin(false))
-    console.log(localStorage.getItem('user')+'name')
+    console.log(localStorage.getItem('user') + 'name')
   }
 
-  if(localStorage.getItem('user')){
+  if (localStorage.getItem('user')) {
     dispatch(changeIsUser(true))
   }
   const handleSubmit = (val) => {
@@ -22,7 +22,6 @@ const Login = () => {
       localStorage.setItem('user', '123')
       dispatch(changeIsUser(true))
     }
-
   }
 
   return (
@@ -44,7 +43,9 @@ const Login = () => {
                 <Input placeholder="请输入密码" className="input"></Input>
               </Form.Item>
               <Form.Item>
-                <Button htmlType='submit' className="btn" onClick={closeLogin}>登录</Button>
+                <Button htmlType="submit" className="btn" onClick={closeLogin}>
+                  登录
+                </Button>
               </Form.Item>
             </Form>
           </div>

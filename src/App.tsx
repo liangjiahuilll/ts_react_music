@@ -10,11 +10,11 @@ import Login from './views/login'
 import ReactDOM from 'react-dom'
 
 function App() {
-  const dispatch:any=useDispatch()
-  const backdrop=document.getElementById('backdrop')
-  useEffect(()=>{
+  const dispatch: any = useDispatch()
+  const backdrop = document.getElementById('backdrop')
+  useEffect(() => {
     dispatch(getCurrentSong(2638631174))
-  },[])
+  }, [])
   return (
     <div className="App">
       <AppHeader></AppHeader>
@@ -23,9 +23,7 @@ function App() {
       </Suspense>
       <AppFooter></AppFooter>
       <PlayerBar></PlayerBar>
-      {
-        ReactDOM.createPortal(<Login></Login>,backdrop)
-      }
+      {ReactDOM.createPortal(<Login></Login>, backdrop)}
     </div>
   )
 }

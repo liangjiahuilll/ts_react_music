@@ -1,6 +1,12 @@
 import React, { memo, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchBannerdata,getHotrecommend,getNewAlbum, getrankings,getArtistList } from './store/recommend'
+import {
+  fetchBannerdata,
+  getHotrecommend,
+  getNewAlbum,
+  getrankings,
+  getArtistList
+} from './store/recommend'
 import TopBanner from './child-comp/top-banner'
 import { RecommendWrapper } from './style'
 import Hotrecomment from './child-comp/hot-recommend'
@@ -13,7 +19,7 @@ import UserLogined from './child-comp/user-logined'
 import { useAppSelector } from '@/store'
 
 const Recommend = () => {
-  const isUser=useAppSelector(state=>state.login.isUser)
+  const isUser = useAppSelector((state) => state.login.isUser)
   const dispach: any = useDispatch()
   useEffect(() => {
     dispach(fetchBannerdata())
@@ -23,21 +29,21 @@ const Recommend = () => {
     dispach(getArtistList())
   })
   return (
-      <RecommendWrapper>
+    <RecommendWrapper>
       <TopBanner></TopBanner>
-        <div className='content wrap-v2'>
-          <div className='left'>
-            <Hotrecomment></Hotrecomment>
-            <NewAlbum></NewAlbum>
-            <Topranking></Topranking>
-          </div>
-          <div className='right'>
-            {isUser?<UserLogined></UserLogined>:<UserLogin></UserLogin>}
-            <SettleSinger></SettleSinger>
-            <HotAnchor></HotAnchor>
-          </div>
+      <div className="content wrap-v2">
+        <div className="left">
+          <Hotrecomment></Hotrecomment>
+          <NewAlbum></NewAlbum>
+          <Topranking></Topranking>
         </div>
-      </RecommendWrapper>
+        <div className="right">
+          {isUser ? <UserLogined></UserLogined> : <UserLogin></UserLogin>}
+          <SettleSinger></SettleSinger>
+          <HotAnchor></HotAnchor>
+        </div>
+      </div>
+    </RecommendWrapper>
   )
 }
 export default memo(Recommend)
