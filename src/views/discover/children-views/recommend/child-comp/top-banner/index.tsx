@@ -3,11 +3,11 @@ import React, { memo, useRef, useState } from 'react'
 import type { ElementRef } from 'react'
 import { BannerControl, BannerLeft, BannerRight, BannerWrapper } from './style'
 import { Carousel } from 'antd'
+import classNames from 'classnames'
 
 const Topbanner = () => {
   // 从store中获取轮播图数据
   const banners = useAppSelector((state) => state.recommend.banners)
-  console.log(banners)
   const [currentindex, setCurrentindex] = useState(0)
   // 获取元素的类型约束
   const bannerref = useRef<ElementRef<typeof Carousel>>()
@@ -23,8 +23,6 @@ const Topbanner = () => {
     setCurrentindex(current)
   }
 
-  console.log(currentindex)
-  // console.log(banners.length)
   let backgroundImg
   if (currentindex >= 0 && banners) {
     backgroundImg = banners[currentindex]?.imageUrl + '?imageView&blur=40x20'
@@ -36,7 +34,14 @@ const Topbanner = () => {
     >
       <div className="banner wrap-v2">
         <BannerLeft>
-          <Carousel autoplay ref={bannerref} afterChange={handleafterChange}>
+          <Carousel
+            autoplay
+            ref={bannerref}
+            afterChange={handleafterChange}
+            dots={false}
+            autoplaySpeed={10000}
+            effect="fade"
+          >
             {banners &&
               banners.map((item) => {
                 return (
@@ -50,6 +55,20 @@ const Topbanner = () => {
                 )
               })}
           </Carousel>
+          <ul className="dots">
+            {banners &&
+              banners.map((item, index) => {
+                return (
+                  <li key={item.imageUrl}>
+                    <span
+                      className={classNames('item', {
+                        active: index === currentindex
+                      })}
+                    ></span>
+                  </li>
+                )
+              })}
+          </ul>
         </BannerLeft>
         <BannerRight></BannerRight>
         <BannerControl>

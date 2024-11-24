@@ -4,8 +4,14 @@ import Lists from '@/assets/data/header_titles.json'
 import { NavLink } from 'react-router-dom'
 import { Input } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
+import { useDispatch } from 'react-redux'
+import { changeShowLogin } from '@/views/login/store'
 
 const Appheader = () => {
+  const dispatch = useDispatch()
+  const changeLogin = () => {
+    dispatch(changeShowLogin(true))
+  }
   function showitems(item: any) {
     if (item.type === 'path') {
       return (
@@ -47,7 +53,9 @@ const Appheader = () => {
             prefix={<SearchOutlined></SearchOutlined>}
           ></Input>
           <span className="center">创作者中心</span>
-          <span className="login">登录</span>
+          <span className="login" onClick={changeLogin}>
+            登录
+          </span>
         </HeaderRight>
       </div>
       <div className="divider"></div>
