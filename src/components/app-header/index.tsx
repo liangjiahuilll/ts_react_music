@@ -5,12 +5,18 @@ import { NavLink } from 'react-router-dom'
 import { Input } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { useDispatch } from 'react-redux'
-import { changeShowLogin } from '@/views/login/store'
+import { changeIsUser, changeShowLogin } from '@/views/login/store'
+import { useAppSelector } from '@/store'
 
 const Appheader = () => {
+  const IsUser = useAppSelector((state) => state.login.isUser)
   const dispatch = useDispatch()
   const changeLogin = () => {
     dispatch(changeShowLogin(true))
+  }
+  const outLogin = () => {
+    localStorage.removeItem('user')
+    dispatch(changeIsUser(false))
   }
   function showitems(item: any) {
     if (item.type === 'path') {
@@ -53,9 +59,15 @@ const Appheader = () => {
             prefix={<SearchOutlined></SearchOutlined>}
           ></Input>
           <span className="center">创作者中心</span>
-          <span className="login" onClick={changeLogin}>
-            登录
-          </span>
+          {IsUser ? (
+            <span className="login" onClick={outLogin}>
+              退出
+            </span>
+          ) : (
+            <span className="login" onClick={changeLogin}>
+              登录
+            </span>
+          )}
         </HeaderRight>
       </div>
       <div className="divider"></div>
